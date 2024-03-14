@@ -102,6 +102,7 @@ const playSong = (id) => {
     playButton.classList.add("playing");
     highlightCurrentSong();
     setPlayerDisplay();
+    setPlayButtonAccessibleText();
     audio.play();
 };
 
@@ -176,23 +177,30 @@ const renderSongs = (array) => {
       .join("");
 
       playlistSongs.innerHTML = songsHTML;
-  };
+};
 
-  playButton.addEventListener("click", () => {
+const setPlayButtonAccessibleText = () => {
+    const song = userData?.currentSong || userData?.songs[0];
+    playButton.setAttribute("aria-label", song?.title ? `Play ${song.title}` : "Play");
+};
+
+const getCurrentSongIndex = () => userData?.songs.indexOf(userData?.currentSong);
+
+playButton.addEventListener("click", () => {
     if (userData?.currentSong === null) {
       playSong(userData?.songs[0].id);
     } else {
       playSong(userData?.currentSong.id);
     }
-  });
+});
 
-  pauseButton.addEventListener("click",  pauseSong);
+pauseButton.addEventListener("click",  pauseSong);
 
-  nextButton.addEventListener("click", playNextSong);
+nextButton.addEventListener("click", playNextSong);
 
-  previousButton.addEventListener("click", playPreviousSong);
+previousButton.addEventListener("click", playPreviousSong);
 
-  const sortSongs = () => {
+const sortSongs = () => {
     userData?.songs.sort((a,b) => {
       if (a.title < b.title) {
         return -1;
@@ -206,6 +214,6 @@ const renderSongs = (array) => {
     });
   
     return userData?.songs;
-  };
+};
   
-  renderSongs(sortSongs());
+renderSongs(sortSongs());
