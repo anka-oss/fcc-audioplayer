@@ -21,30 +21,31 @@ Oparty na przeglądarce odtwarzacz audio stworzony w celu praktyki podstawowych 
 Clone the repository and open in your browser:
 
 ```bash
-git clone https://github.com/anka-oss/fcc-caloriescounter.git
-cd fcc-caloriescounter
-then open index.html in your preferred browser
+git clone https://github.com/anka-oss/fcc-audioplayer.git
+cd fcc-audioplayer
 ```
+then open index.html in your preferred browser
+
 ## Usage
-1. In the **Budget** field, enter your daily calorie limit.
-2. Select a category, add a description and calorie amount, then click **Add Entry**.
-3. **Click Calculate Remaining Calories** to view your current balance.
-4. Click **Clear** to reset all data.
+1. Click on any track in the playlist to load it.
+2. Use the Play/Pause button to start or stop playback.
+3. Navigate between tracks using Next and Previous buttons.
+4. Click Shuffle to randomize the playlist order.
+5. Click or drag on the Progress Bar to seek within the current track.
 
 ## Technologies
-- Vanilla JavaScript
-- HTML5
-- CSS3
+- JavaScript (ES6+) for player logic
+- HTML5 Audio API for handling audio playback
+- HTML5 & CSS3 for structure and styling
 
 ## File Structure
 ```bash
-fcc-caloriescounter/
-├── index.html    # markup and UI
-├── styles.css    # layout and styling
-└── script.js     # core logic and event handlers
+fcc-audioplayer/
+├── index.html      # Player markup and controls
+├── styles.css      # Layout and styling
+└── script.js       # Playback logic and event listeners
 ```
 
 ## License
 This project is open source and available under the **MIT License**.
-Projekt jest otwartoźródłowy i dostępny na licencji **MIT**.
 
